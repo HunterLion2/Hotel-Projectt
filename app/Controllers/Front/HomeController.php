@@ -1,8 +1,11 @@
 <?php
-namespace Controllers;
 
-class HomeController {
+namespace App\Controllers\Front;
+
+use \App\Core\BaseController;
+
+class HomeController extends BaseController {
     public function index() {
-        echo "<h1>Welcome to PHP MVC Hotel Project!</h1>";
+        $this->render("front/home");
     }
 }
