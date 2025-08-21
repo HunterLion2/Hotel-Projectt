@@ -37,3 +37,10 @@
     background-color: #FED16A;
     color: black;
 }
+
+.head {
+    background-color: rgb(255, 255, 255,0.1);
+    font-family: "Kanit", sans-serif;
+    color: #fff;
+}
+
