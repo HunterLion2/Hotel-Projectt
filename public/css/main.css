@@ -21,6 +21,7 @@
     font-weight: 400;
     line-height: normal;
     text-align: center;
+    letter-spacing: 25px;
 }
 
 .rooms-link {
@@ -39,7 +40,7 @@
 }
 
 .head {
-    background-color: rgb(255, 255, 255,0.1);
+    background-color: rgba(255, 255, 255, 0.103);
     font-family: "Kanit", sans-serif;
     color: #fff;
 }

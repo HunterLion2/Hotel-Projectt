@@ -16,40 +16,36 @@
 
     <div class="main">
         <div class="head">
-                <nav class="navbar navbar-expand-lg ">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="#">Navbar</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Link</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                                </li>
-                            </ul>
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                            </form>
-                        </div>
+            <nav class="navbar navbar-expand-lg p-3">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
+                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                            <li class="nav-item px-5">
+                                <a class="nav-link " aria-current="page" href="#" style="color: #fff;">Hakkımızda</a>
+                            </li>
+                            <li class="nav-item px-5">
+                                <a class="nav-link" href="#" style="color: #fff;">Anasayfa</a>
+                            </li>
+                            <li class="nav-item px-5">
+                                <a class="nav-link " href="#" aria-disabled="true" style="color: #fff;">İletişim</a>
+                            </li>
+                        </ul>
+                        <a href="#" style="text-decoration: none; border: none; "><img src="img/alarm-clock-regular-full 1.svg" alt="" style="color: white;"></a> 
                     </div>
-                </nav>
+                </div>
+            </nav>
         </div>
         <div class="main-body">
             <div class="container">
                 <div class="row">
                     <div class="d-flex align-items-center">
-                        <div class="col-4">
-                            <img src="img/image.png" alt="" width="120%">
+                        <div class="col-5">
+                            <img src="img/image.png" alt="" width="100%">
                         </div>
-                        <div class="col-8">
+                        <div class="col-7 mx-5">
                             <div class="text-center">
                                 <h1 class="main-head">The Wılde</h1>
                                 <a href="#" class="rooms-link text-center">Odalar</a>
@@ -60,5 +56,11 @@
             </div>
         </div>
     </div>
+
+    <?php 
+    
+        require __DIR__ . "/time.php";
+
+    ?>
 
 </body>
