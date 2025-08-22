@@ -42,10 +42,10 @@
             <div class="container">
                 <div class="row">
                     <div class="d-flex align-items-center">
-                        <div class="col-5">
+                        <div class="col-lg-5">
                             <img src="img/image.png" alt="" width="100%">
                         </div>
-                        <div class="col-7 mx-5">
+                        <div class="col-lg-7 ">
                             <div class="text-center">
                                 <h1 class="main-head">The Wılde</h1>
                                 <a href="#" class="rooms-link text-center">Odalar</a>
@@ -60,6 +60,7 @@
     <?php 
     
         require __DIR__ . "/time.php";
+        require __DIR__ . "/room-details.php";
 
     ?>
 
