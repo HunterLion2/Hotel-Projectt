@@ -19,7 +19,14 @@
         font-family: "Kalnia", serif;
         background-color: rgba(255, 238, 210, 1);
         font-size: 20px;
+        transition: all 0.5s ease;
     }
+
+    #time-a:hover {
+        background-color: #2F5336;
+        color: rgba(255, 238, 210, 1);
+    }
+
 </style>
 
 <div class="time">

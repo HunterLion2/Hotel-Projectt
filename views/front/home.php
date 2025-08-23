@@ -43,7 +43,7 @@
                 <div class="row">
                     <div class="d-flex align-items-center">
                         <div class="col-lg-5">
-                            <img src="img/image.png" alt="" width="100%">
+                            <img src="img/image.png" alt="" width="80%">
                         </div>
                         <div class="col-lg-7 ">
                             <div class="text-center">
@@ -61,6 +61,8 @@
     
         require __DIR__ . "/time.php";
         require __DIR__ . "/room-details.php";
+        require __DIR__ . "/olanaklar.php";
+        require __DIR__ . "/About-Us.php"
 
     ?>
 
