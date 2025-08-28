@@ -2,13 +2,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5>Hotel Project</h5>
-                    <p>Modern PHP MVC mimarisi ile geliştirilmiş otel rezervasyon sistemi.</p>
+                    <h5>Bize Ulaşın</h5>
+                    <p>Otel ile ilgili sorunlarınız , görüş ve öneriliriniz için lütfen bize ulaşın.</p>
                 </div>
                 <div class="col-md-6">
                     <h5>İletişim</h5>
                     <p>Email: info@hotelproject.com<br>
-                    Telefon: +90 212 123 45 67</p>
+                    Telefon: +90 242 656 75 58</p>
                 </div>
             </div>
             <hr>

@@ -33,7 +33,6 @@
                                 <a class="nav-link " href="#" aria-disabled="true" style="color: #fff;">İletişim</a>
                             </li>
                         </ul>
-                        <a href="#" style="text-decoration: none; border: none; "><img src="img/alarm-clock-regular-full 1.svg" alt="" style="color: white;"></a> 
                     </div>
                 </div>
             </nav>
@@ -42,10 +41,10 @@
             <div class="container">
                 <div class="row">
                     <div class="d-flex align-items-center">
-                        <div class="col-lg-5">
+                        <div class="col-lg-5 col-0">
                             <img src="img/image.png" alt="" width="80%">
                         </div>
-                        <div class="col-lg-7 ">
+                        <div class="col-lg-7 col-12">
                             <div class="text-center">
                                 <h1 class="main-head">The Wılde</h1>
                                 <a href="#" class="rooms-link text-center">Odalar</a>
@@ -62,7 +61,7 @@
         require __DIR__ . "/time.php";
         require __DIR__ . "/room-details.php";
         require __DIR__ . "/olanaklar.php";
-        require __DIR__ . "/About-Us.php"
+        require __DIR__ . "/About-Us.php";
 
     ?>
 

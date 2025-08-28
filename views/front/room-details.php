@@ -6,9 +6,9 @@
         background-repeat: no-repeat;
         height: 140px;
     }
-    
+
     .number {
-        font-family: "Kameron",serif;
+        font-family: "Kameron", serif;
         color: #fff;
     }
 
@@ -19,36 +19,97 @@
         justify-content: center;
     }
 
+    .purple-stats {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .purple-stats img {
+        width: 65px;
+        height: 65px;
+        object-fit: contain;
+    }
+
+    .nitelikler-title {
+        color: #fff;
+    }
+
     .room-h1 {
         font-size: 48px;
     }
 
+    p {
+        font-size: 20px;
+        font-family: "Kadwa",sans-serif;
+        font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+        .purple-area {
+            height: auto;
+            padding: 20px 0;
+        }
+
+        .nitelikler-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .number {
+            font-size: 20px;
+        }
+
+        .rooms-detail {
+            min-height: auto;
+            padding: 30px 0;
+        }
+
+        .purple-stats {
+            justify-content: center;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+
+        .purple-stats img {
+            max-width: 30px;
+        }
+
+        .rooms-detail img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .img-fluid-i {
+            text-align: center;
+        }
+
+    }
 </style>
 
 <div class="purple-area">
     <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-lg-4">
-                <div class="row">
-                    <div class="col-4">
-                        <img src="img/bed-solid-full 1.svg" alt="">
-                    </div>
-                    <div class="col-5">
-                        <h1 class="number pt-2">120</h1>
-                    </div>
+        <div class="row justify-content-center align-items-center">
+            <!-- Sol stats -->
+            <div class="col-12 col-md-4 col-lg-4">
+                <div class="purple-stats">
+                    <img src="img/bed-solid-full 1.svg" alt="Yatak" class="img-fluid-i">
+                    <h1 class="number mb-0">120</h1>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <h1 style="color: #fff;" class="fs-bolder">Niteliklerimiz</h1>
+
+            <!-- Başlık -->
+            <div class="col-12 col-md-4 col-lg-4">
+                <h1 class="nitelikler-title mb-0">Niteliklerimiz</h1>
             </div>
-            <div class="col-lg-2">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <img src="img/Vector.svg" alt="" class="mt-2">
-                    </div>
-                    <div class="col-lg-3">
-                        <h1 class="number pt-2">35</h1>
-                    </div>
+
+            <!-- Sağ stats -->
+            <div class="col-12 col-md-4 col-lg-4">
+                <div class="purple-stats">
+                    <img src="img/Vector.svg" alt="Özellik" class="img-fluid-i">
+                    <h1 class="number mb-0">35</h1>
                 </div>
             </div>
         </div>
@@ -56,14 +117,20 @@
 </div>
 
 <div class="rooms-detail">
-    <div class="container-">
-        <div class="row">
-            <div class="col-lg-6">
-                <img src="img/Group 15.svg" alt="" width="100%">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                <img src="img/Group 15.svg" alt="Oda Detayları" class="img-fluid">
             </div>
-            <div class="col-lg-1"></div>
-            <div class="col-lg-5" id="OdaDonanımları">
-                <img src="img/Group 16.png" alt="">
+            <div class="col-12 col-lg-5 offset-lg-1">
+                <h2 class="text-center">Oda Donanımları</h2>
+                <hr>
+                <p class="text-center">- Konforlu yataklar, yüksek kaliteli nevresim -</p>
+                <p class="text-center">- Klima ve ısıtma sistemi -</p>
+                <p class="text-center">- Minibar, ücretsiz çay & kahve seti -</p>
+                <p class="text-center">- Smart TV ve yüksek hızlı internet -</p>
+                <p class="text-center">- Balkonlu seçenekler -</p>
+                <p class="text-center">- Lüks banyo ve kişisel bakım ürünleri -</p>
             </div>
         </div>
     </div>

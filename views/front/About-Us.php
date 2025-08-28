@@ -7,6 +7,17 @@
     .about-text {
         font-size: 20px;
         font-family: "Kadwa", sans-serif;
+    }
+
+    @media(max-width: 768px) {
+        .about-head {
+            font-size: 50px;
+            font-family: "Kalnia", sans-serif;
+        }
+
+        hr {
+            width: 100%;
+        }
 
     }
 </style>
@@ -14,13 +25,13 @@
 <div class="about-us">
     <div class="mx-5 mt-5">
         <div class="row">
-            <div class="col-lg-4">
-                <img src="img/Group 19.svg" alt="">
+            <div class="col-lg-4 col-12">
+                <img src="img/Group 19.svg" alt="" width="100%">
             </div>
-            <div class="col-lg-8 pt-5">
+            <div class="col-lg-8 col-12 pt-5">
                 <h2 class="about-head">Hakkımızda</h2>
                 <hr width="35%">
-                <div class="container">
+                <div>
                     <p class="about-text pt-5">Doğanın kalbinde, huzur ve konforu bir arada sunmak amacıyla 2015 yılında kapılarını açan The Wilde Oteli, 10 yılı aşkın süredir misafirlerine unutulmaz bir konaklama deneyimi yaşatmaktadır.</p>
 
                     <p class="about-text pt-2">Modern mimariyi klasik Avrupa zarafetiyle harmanlayan tasarımımız, misafirlerimize hem estetik bir atmosfer hem de sıcak bir misafirperverlik sunar. 45 odadan oluşan butik otelimiz; çiftler, aileler ve iş seyahatleri için özel olarak düşünülmüş konaklama seçenekleriyle hizmet vermektedir.
