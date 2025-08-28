@@ -47,7 +47,7 @@
                         <div class="col-lg-7 col-12">
                             <div class="text-center">
                                 <h1 class="main-head">The Wılde</h1>
-                                <a href="#" class="rooms-link text-center">Odalar</a>
+                                <a href="/reservation" class="rooms-link text-center">Odalar</a>
                             </div>
                         </div>
                     </div>

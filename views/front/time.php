@@ -62,7 +62,7 @@
                 <div class="col-lg-7 col-12 pt-5">
                     <h1>Sadece İstediğiniz <br> Zamanı Belirleyin</h1>
                     <div class="text-center">
-                        <a href="#" id="time-a" class="text-center px-5 p-2 rounded-5">Rezervasyon Yap</a>
+                        <a href="/reservation" id="time-a" class="text-center px-5 p-2 rounded-5">Rezervasyon Yap</a>
                     </div>
                 </div>
             </div>

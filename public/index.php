@@ -7,6 +7,7 @@ use App\Middleware\AuthMiddleware;
 use App\Core\BaseController;
 
 Route::add('/', 'Front\HomeController@index');
+Route::add('/reservation', 'Front\ReservationController@index');
 
 // Gelen URI'yi al ve yönlendir
 $uri = $_SERVER['REQUEST_URI'];
