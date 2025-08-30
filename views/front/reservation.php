@@ -88,12 +88,9 @@
                         </div>
                     </form>
                 </div>
+                <div class="room-section col-12 col-lg-9 col-md-7 px-4 rounded-4">
+                    <div class="">
 
-                <div class="room-section col-12 col-lg-9 col-md-7 p-4 rounded-4">
-                    <div class="row">
-                        <div class="">
-                            <?php ?>
-                        </div>
                     </div>
                 </div>
             </div>
