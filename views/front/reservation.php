@@ -32,13 +32,13 @@
                     <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
                         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                             <li class="nav-item px-5">
-                                <a class="nav-link " aria-current="page" href="#" style="color: #fff;">Hakkımızda</a>
+                                <a class="nav-link " aria-current="page" href="/About-Us" style="color: #fff;">Hakkımızda</a>
                             </li>
                             <li class="nav-item px-5">
-                                <a class="nav-link" href="#" style="color: #fff;">Anasayfa</a>
+                                <a class="nav-link" href="/home.php" style="color: #fff;">Anasayfa</a>
                             </li>
                             <li class="nav-item px-5">
-                                <a class="nav-link " href="#" aria-disabled="true" style="color: #fff;">İletişim</a>
+                                <a class="nav-link " href="/views/front/footer" aria-disabled="true" style="color: #fff;">İletişim</a>
                             </li>
                         </ul>
                     </div>
@@ -88,7 +88,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="room-section col-12 col-lg-9 col-md-7 px-4 rounded-4">
+                <div class="room-section col-12 col-lg-9 col-md-7 rounded-4">
                     <div class="">
 
                     </div>

@@ -8,4 +8,10 @@ class ReservationController extends BaseController {
     public function index() {
         $this->render("front/reservation");
     }
+
+    public function filter() {
+        
+    }
+
+
 }
