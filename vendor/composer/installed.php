@@ -3,7 +3,7 @@
         'name' => 'hotel-project/php-mvc',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'f04f9ebd2deb2c8d27fa34decca67f17b0cd5f26',
+        'reference' => '4239d893e076741783da292d867729d721109335',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'hotel-project/php-mvc' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'f04f9ebd2deb2c8d27fa34decca67f17b0cd5f26',
+            'reference' => '4239d893e076741783da292d867729d721109335',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
