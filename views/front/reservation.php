@@ -43,13 +43,14 @@
                         </ul>
                     </div>
                 </div>
-            </nav>
+            </nav> 
         </div>
 
         <div class="reservation-complety mt-4 mx-4 mb-3 p-3 rounded-5">
             <div class="row px-2">
                 <div class="col-12 col-lg-3 col-md-5 p-4 rounded-4" id="filter">
                     <h1 class="text-center">Filtreleme</h1>
+                    
                     <hr>
                     <h2>Kaç Kişilik</h2>
                     <hr width="25%">
