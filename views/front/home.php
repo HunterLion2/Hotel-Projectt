@@ -14,7 +14,7 @@
 
 <body>
 
-    <div class="main">
+    <div id="home" class="main">
         <div class="head">
             <nav class="navbar navbar-expand-lg p-3">
                 <div class="container-fluid">
@@ -24,13 +24,13 @@
                     <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
                         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                             <li class="nav-item px-5">
-                                <a class="nav-link " aria-current="page" href="/About-Us" style="color: #fff;">Hakkımızda</a>
+                                <a class="nav-link " aria-current="page" href="#about-us" style="color: #fff;">Hakkımızda</a>
                             </li>
                             <li class="nav-item px-5">
-                                <a class="nav-link" href="/home" style="color: #fff;">Anasayfa</a>
+                                <a class="nav-link" href="#home" style="color: #fff;">Anasayfa</a>
                             </li>
                             <li class="nav-item px-5">
-                                <a class="nav-link " href="/footer" aria-disabled="true" style="color: #fff;">İletişim</a>
+                                <a class="nav-link " href="#footer" aria-disabled="true" style="color: #fff;">İletişim</a>
                             </li>
                         </ul>
                     </div>

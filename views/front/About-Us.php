@@ -22,7 +22,7 @@
     }
 </style>
 
-<div class="about-us">
+<div id="about-us" class="about-us">
     <div class="mx-5 mt-5">
         <div class="row">
             <div class="col-lg-4 col-12">
