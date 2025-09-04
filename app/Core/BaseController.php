@@ -15,12 +15,16 @@ class BaseController
      * BaseController constructor.
      * Oturum başlatma ve oturum süresi ayarlama
 
-    **/
+     **/
     public function __construct()
     {
         // Oturum başlatma ve oturum süresi ayarlama
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
+        }
+
+        if (!isset($_SESSION)) {
+            $_SESSION = [];
         }
 
         // // SettingsModel kullanarak ayarları yükle
@@ -42,9 +46,9 @@ class BaseController
 
     /**
 
-    * Kullanıcı giriş kontrolü
+     * Kullanıcı giriş kontrolü
 
-    **/
+     **/
 
     // private function checkLogin()
     // {
@@ -75,7 +79,7 @@ class BaseController
         // $data['categories'] = $this->categories;
         // $data['cartItemCount'] = $this->cartItemCount;
 
-        $data['session'] = $_SESSION;
+        $data['session'] = $_SESSION ?? [];
 
         // Verileri kullanılabilir hale getirme
         extract($data);

@@ -349,17 +349,17 @@
                     <div class="filter-card">
                         <h2><i class="bi bi-funnel"></i> Filtreler</h2>
 
-                        <form method="POST" action="/reservation">
+                        <form method="GET" action="/reservation">
                             <!-- Guest Count -->
                             <div class="filter-section">
                                 <h3><i class="bi bi-people"></i> Kaç Kişilik</h3>
                                 <select class="form-control" name="kişisay" required>
                                     <option value="">Seçiniz</option>
-                                    <option value="1" <?= ($_POST['kişisay'] ?? '') == '1' ? 'selected' : '' ?>>1 Kişi</option>
-                                    <option value="2" <?= ($_POST['kişisay'] ?? '') == '2' ? 'selected' : '' ?>>2 Kişi</option>
-                                    <option value="3" <?= ($_POST['kişisay'] ?? '') == '3' ? 'selected' : '' ?>>3 Kişi</option>
-                                    <option value="4" <?= ($_POST['kişisay'] ?? '') == '4' ? 'selected' : '' ?>>4 Kişi</option>
-                                    <option value="5+" <?= ($_POST['kişisay'] ?? '') == '5+' ? 'selected' : '' ?>>5+ Kişi</option>
+                                    <option value="1" <?= ($_GET['kişisay'] ?? '') == '1' ? 'selected' : '' ?>>1 Kişi</option>
+                                    <option value="2" <?= ($_GET['kişisay'] ?? '') == '2' ? 'selected' : '' ?>>2 Kişi</option>
+                                    <option value="3" <?= ($_GET['kişisay'] ?? '') == '3' ? 'selected' : '' ?>>3 Kişi</option>
+                                    <option value="4" <?= ($_GET['kişisay'] ?? '') == '4' ? 'selected' : '' ?>>4 Kişi</option>
+                                    <option value="5+" <?= ($_GET['kişisay'] ?? '') == '5+' ? 'selected' : '' ?>>5+ Kişi</option>
                                 </select>
                             </div>
 
@@ -372,7 +372,7 @@
                                         <input type="date"
                                             name="date-start"
                                             class="form-control"
-                                            value="<?= $_POST['date-start'] ?? '' ?>"
+                                            value="<?= $_GET['date-start'] ?? '' ?>"
                                             min="<?= date('Y-m-d') ?>"
                                             required>
                                     </div>
@@ -381,7 +381,7 @@
                                         <input type="date"
                                             name="date-end"
                                             class="form-control"
-                                            value="<?= $_POST['date-end'] ?? '' ?>"
+                                            value="<?= $_GET['date-end'] ?? '' ?>"
                                             min="<?= date('Y-m-d', strtotime('+1 day')) ?>"
                                             required>
                                     </div>
@@ -396,7 +396,7 @@
                                         name="price-filter"
                                         class="form-control"
                                         placeholder="Maksimum fiyat"
-                                        value="<?= $_POST['price-filter'] ?? '' ?>"
+                                        value="<?= $_GET['price-filter'] ?? '' ?>"
                                         min="0">
                                     <span class="input-group-text">₺</span>
                                 </div>
@@ -408,21 +408,21 @@
                                 <div class="px-3">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="none-smoke" id="none-smoke"
-                                            <?= isset($_POST['none-smoke']) ? 'checked' : '' ?>>
+                                            <?= isset($_GET['none-smoke']) ? 'checked' : '' ?>>
                                         <label class="form-check-label" for="none-smoke">
                                             <i class="bi bi-shield-check"></i> Sigara İçilmeyen Odalar
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="engelli-erişimi" id="engelli-erişimi"
-                                            <?= isset($_POST['engelli-erişimi']) ? 'checked' : '' ?>>
+                                            <?= isset($_GET['engelli-erişimi']) ? 'checked' : '' ?>>
                                         <label class="form-check-label" for="engelli-erişimi">
                                             <i class="bi bi-universal-access"></i> Engelli Erişimine Uygun
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="romantic-packet" id="romantic-packet"
-                                            <?= isset($_POST['romantic-packet']) ? 'checked' : '' ?>>
+                                            <?= isset($_GET['romantic-packet']) ? 'checked' : '' ?>>
                                         <label class="form-check-label" for="romantic-packet">
                                             <i class="bi bi-heart"></i> Romantik Paket
                                         </label>
@@ -439,43 +439,45 @@
                 </div>
 
                 <!-- Rooms Results -->
+
                 <div class="col-lg-8 col-xl-9">
                     <div class="rooms-container">
                         <div class="rooms-header">
                             <h2>Müsait Odalar</h2>
                             <span class="rooms-count">
-                                <i class="bi bi-house"></i> 6 Oda Bulundu
+                                <i class="bi bi-house"></i> <?= count($rooms ?? []) ?> Oda Bulundu
                             </span>
                         </div>
 
                         <!-- Room Cards -->
                         <div class="row">
-                            <?php for ($i = 1; $i <= 6; $i++): ?>
-                                <div class="col-12">
+                            <div class="col-12">
+                                <?php foreach ($rooms as $room): ?>
                                     <div class="room-card">
                                         <div class="row g-0">
                                             <div class="col-md-4">
                                                 <div class="room-image">
-                                                    <img src="/img/room<?= $i ?>.jpg" alt="Oda <?= $i ?>">
+                                                    <img src="img/room<?= htmlspecialchars($room['img']) ?>">
                                                     <div class="room-price-badge">
-                                                        <?= 150 + ($i * 50) ?>₺ / Gece
+                                                        <?= number_format($room['price']) ?>₺ / Gece
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="room-content">
                                                     <h3 class="room-title">
-                                                        <?= ['Deluxe Oda', 'Standart Oda', 'Suit Oda', 'Aile Odası', 'Balayı Süiti', 'İş Odası'][$i - 1] ?>
+                                                        <?= htmlspecialchars($room['room-name'])?>
                                                     </h3>
                                                     <p class="text-muted mb-3">
-                                                        <?= ($i * 2) ?> kişilik • Deniz manzaralı • <?= 25 + ($i * 5) ?>m²
+                                                        <?= htmlspecialchars($room['capacity'])   ?> Kişiye Kadar Konaklama İmkanı
                                                     </p>
 
                                                     <div class="room-features">
-                                                        <span class="feature-tag"><i class="bi bi-wifi"></i> Ücretsiz WiFi</span>
-                                                        <span class="feature-tag"><i class="bi bi-tv"></i> Smart TV</span>
-                                                        <span class="feature-tag"><i class="bi bi-snow"></i> Klima</span>
-                                                        <span class="feature-tag"><i class="bi bi-cup-hot"></i> Minibar</span>
+                                                        <span class="feature-tag"><i class="bi bi-wifi"></i><?= htmlspecialchars($room['wifi']) ?></span>
+                                                        <span class="feature-tag"><i class="bi bi-tv"></i> <?= htmlspecialchars($room['Tv']) ?></span>
+                                                        <span class="feature-tag"><i class="bi bi-snow"></i> <?= htmlspecialchars($room['climate']) ?></span>
+                                                        <span class="feature-tag"><i class="bi bi-cup-hot"></i> <?= htmlspecialchars($room['minibar']) ?></span>
+
                                                     </div>
 
                                                     <div class="d-flex justify-content-between align-items-center">
@@ -490,8 +492,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            <?php endfor; ?>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
 
                         <!-- Empty State (gösterilmeyecek çünkü odalar var) -->
@@ -502,6 +504,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

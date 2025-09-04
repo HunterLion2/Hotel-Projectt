@@ -29,7 +29,7 @@ class Database
         $config = Config::loadEnv(); // Ortam değişkenlerini yükler
 
         // DSN (Data Source Name) oluşturur
-        $dsn = "mysql:host={$config['DB_HOST']};dbname={$config['DB_NAME']};charset={$config['DB_CHARSET']}";
+        $dsn = "mysql:host={$config['DB_HOST']};port={$config['DB_PORT']};dbname={$config['DB_NAME']};charset={$config['DB_CHARSET']}";
         try {
             // PDO nesnesi oluşturur ve bağlantı kurar
             $this->connection = new PDO($dsn, $config['DB_USER'], $config['DB_PASSWORD'], [
