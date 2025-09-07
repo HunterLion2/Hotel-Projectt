@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kalnia:wght@100..700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -305,7 +306,7 @@
         }
 
         #room-img {
-            width: 100px; 
+            width: 100px;
             height: 100px;
         }
 
@@ -333,6 +334,19 @@
                 margin-bottom: 20px;
             }
         }
+
+        .filter-close-in {
+            background-color: #df0700ff;
+            height: 30px;
+            width: 30px;
+            border: none;
+            border-radius: 30px;
+            position: relative;
+            float: right;
+            margin-bottom: 10px;
+            transition: all 3s ease;
+        }
+
     </style>
 </head>
 
@@ -352,6 +366,9 @@
                 <!-- Filter Sidebar -->
                 <div class="col-lg-4 col-xl-3">
                     <div class="filter-card">
+                        <span class="filter-close">
+                            <button class="filter-close-in"><i class="fa-solid fa-xmark text-white"></i></button>
+                        </span>
                         <h2><i class="bi bi-funnel"></i> Filtreler</h2>
 
                         <form method="GET" action="/reservation">
@@ -360,7 +377,6 @@
                                 <h3><i class="bi bi-people"></i> Kaç Kişilik</h3>
                                 <select class="form-control" name="kişisay" required>
                                     <option value="">Seçiniz</option>
-                                    <option value="1" <?= ($_GET['kişisay'] ?? '') == '1' ? 'selected' : '' ?>>1 Kişi</option>
                                     <option value="2" <?= ($_GET['kişisay'] ?? '') == '2' ? 'selected' : '' ?>>2 Kişi</option>
                                     <option value="3" <?= ($_GET['kişisay'] ?? '') == '3' ? 'selected' : '' ?>>3 Kişi</option>
                                     <option value="4" <?= ($_GET['kişisay'] ?? '') == '4' ? 'selected' : '' ?>>4 Kişi</option>
@@ -473,7 +489,7 @@
                                             <div class="col-md-8">
                                                 <div class="room-content">
                                                     <h3 class="room-title">
-                                                        <?= htmlspecialchars($room['room-name'])?>
+                                                        <?= htmlspecialchars($room['room-name']) ?>
                                                     </h3>
                                                     <p class="text-muted mb-3">
                                                         <?= htmlspecialchars($room['capacity'])   ?> Kişiye Kadar Konaklama İmkanı
@@ -499,20 +515,25 @@
                                             </div>
                                         </div>
                                     </div>
+
+
                                 <?php endforeach; ?>
+
+                                <?php if (count($rooms) == 0): ?>
+                                    <div class="empty-state">
+                                        <i class="bi bi-house-x"></i>
+                                        <h3>Üzgünüz, Oda Bulunamadı</h3>
+                                        <p>Arama kriterlerinizi değiştirmeyi deneyin veya farklı tarihler seçin.</p>
+                                    </div>
+                                <?php endif; ?>
+
                             </div>
                         </div>
 
                         <!-- Empty State (gösterilmeyecek çünkü odalar var) -->
 
-                        <div class="empty-state d-none">
-                            <i class="bi bi-house-x"></i>
-                            <h3>Üzgünüz, Oda Bulunamadı</h3>
-                            <p>Arama kriterlerinizi değiştirmeyi deneyin veya farklı tarihler seçin.</p>
-                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

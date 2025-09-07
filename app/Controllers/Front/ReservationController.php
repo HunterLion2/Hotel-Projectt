@@ -27,16 +27,18 @@ class ReservationController extends BaseController
 
                 if ($_SERVER['REQUEST_METHOD'] == "GET") {
                     if ($_GET['kişisay']  <= 2) {
-                        $tworoom = $this->roomModel->twocapacityRoom();
+                        $tworoom = $this->roomModel->twocapacityRoom($_GET['kişisay']);
 
                         $this->render('/front/reservation', [
                             'rooms' => $tworoom
                         ]);
-                    } else if($_GET['kişisay']  >= 3) {
-                        
-                    } 
-                    
-                    else {
+                    } else if ($_GET['kişisay']  >= 3) {
+                        $tworoom = $this->roomModel->twocapacityRoom($_GET['kişisay']);
+
+                        $this->render('/front/reservation', [
+                            'rooms' => $tworoom
+                        ]);
+                    } else {
                         $this->render('/front/reservation', [
                             'rooms' => $allroom
                         ]);

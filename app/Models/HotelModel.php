@@ -16,9 +16,10 @@ class HotelModel {
         return $room->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function twocapacityRoom() {
-        $room = $this->db->query("SELECT * FROM `rooms-table` WHERE capacity = 2");
+    public function twocapacityRoom($capacity) {
+        $room = $this->db->query("SELECT * FROM `rooms-table` WHERE capacity = $capacity");
         return $room->fetchAll(\PDO::FETCH_ASSOC);
     }
+
 
 }
