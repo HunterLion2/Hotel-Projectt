@@ -225,7 +225,7 @@
         }
 
         .room-image {
-            height: 200px;
+            height: 220px;
             background: linear-gradient(45deg, #f8f9fa, #e9ecef);
             position: relative;
             overflow: hidden;
@@ -302,6 +302,11 @@
             font-size: 4rem;
             margin-bottom: 20px;
             opacity: 0.5;
+        }
+
+        #room-img {
+            width: 100px; 
+            height: 100px;
         }
 
         @media (max-width: 768px) {
@@ -444,6 +449,8 @@
                     <div class="rooms-container">
                         <div class="rooms-header">
                             <h2>Müsait Odalar</h2>
+                            <span class="filtreleme">
+                            </span>
                             <span class="rooms-count">
                                 <i class="bi bi-house"></i> <?= count($rooms ?? []) ?> Oda Bulundu
                             </span>
@@ -457,7 +464,7 @@
                                         <div class="row g-0">
                                             <div class="col-md-4">
                                                 <div class="room-image">
-                                                    <img src="img/room<?= htmlspecialchars($room['img']) ?>">
+                                                    <img class="" src="/img/room/<?= htmlspecialchars($room['img']) ?>">
                                                     <div class="room-price-badge">
                                                         <?= number_format($room['price']) ?>₺ / Gece
                                                     </div>
@@ -497,6 +504,7 @@
                         </div>
 
                         <!-- Empty State (gösterilmeyecek çünkü odalar var) -->
+
                         <div class="empty-state d-none">
                             <i class="bi bi-house-x"></i>
                             <h3>Üzgünüz, Oda Bulunamadı</h3>
