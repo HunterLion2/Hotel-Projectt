@@ -10,7 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kalnia:wght@100..700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
@@ -194,6 +196,12 @@
             border-bottom: 2px solid #f8f9fa;
         }
 
+        .rooms-header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
         .rooms-header h2 {
             color: var(--primary-color);
             font-size: 1.8rem;
@@ -347,6 +355,26 @@
             transition: all 3s ease;
         }
 
+        .filtreleme {
+            border: none;
+            background-color: transparent;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .filter-open {
+            color: #468640ff;
+            font-size: 35px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .filtreleme:hover .filter-open {
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
     </style>
 </head>
 
@@ -364,7 +392,7 @@
         <div class="reservation-container">
             <div class="row">
                 <!-- Filter Sidebar -->
-                <div class="col-lg-4 col-xl-3">
+                <div class="filter-card-wh col-lg-4 col-xl-3">
                     <div class="filter-card">
                         <span class="filter-close">
                             <button class="filter-close-in"><i class="fa-solid fa-xmark text-white"></i></button>
@@ -464,9 +492,13 @@
                 <div class="col-lg-8 col-xl-9">
                     <div class="rooms-container">
                         <div class="rooms-header">
-                            <h2>Müsait Odalar</h2>
-                            <span class="filtreleme">
-                            </span>
+                            <div class="rooms-header-left">
+                                <button class="filtreleme d-none" onclick="toggleFilter()">
+                                    <i class="bi bi-funnel filter-open"></i>
+                                </button>
+                                <h2>Müsait Odalar</h2>
+                            </div>
+
                             <span class="rooms-count">
                                 <i class="bi bi-house"></i> <?= count($rooms ?? []) ?> Oda Bulundu
                             </span>
@@ -529,9 +561,6 @@
 
                             </div>
                         </div>
-
-                        <!-- Empty State (gösterilmeyecek çünkü odalar var) -->
-
                     </div>
                 </div>
             </div>
@@ -558,6 +587,47 @@
                     dateEnd.value = '';
                 }
             });
+        });
+
+        document.querySelector(".filter-close-in").addEventListener("click", function() {
+            const filterallcard = document.querySelector('.filter-card');
+            const filterallcardwh = document.querySelector('.filter-card-wh');
+            const roomContainer = document.querySelector('.col-lg-8.col-xl-9');
+            const filter = document.querySelector('.filtreleme');
+
+            filter.classList.remove('d-none');
+            filterallcard.classList.add('animate__animated', 'animate__bounceOut');
+
+            setTimeout(() => {
+                filterallcardwh.classList.remove('col-lg-4', 'col-xl-3');
+                filterallcardwh.classList.add('d-none');
+
+
+                if (roomContainer) {
+                    roomContainer.classList.remove('col-lg-8', 'col-xl-9');
+                    roomContainer.classList.add('col-lg-12', 'col-xl-12', 'animate__animated', 'animate__swing');
+                }
+            }, 500);
+        });
+
+        document.querySelector('.filtreleme').addEventListener("click", function() {
+            const filterallcard = document.querySelector('.filter-card');
+            const filterallcardwh = document.querySelector('.filter-card-wh');
+            const roomContainer = document.querySelector('.col-lg-8.col-xl-9, .col-lg-12.col-xl-12');
+            const filter = document.querySelector('.filtreleme');
+
+            
+            filterallcard.classList.remove('animate__animated', 'animate__bounceOut');
+
+            setTimeout(() => {
+                filterallcardwh.classList.remove('d-none');
+                filter.classList.add('d-none');
+                filterallcardwh.classList.add('col-lg-4', 'col-xl-3');
+
+                roomContainer.classList.remove('col-lg-12', 'col-xl-12');
+                roomContainer.classList.add('col-lg-8', 'col-xl-9');
+            }, 500);
+
         });
     </script>
 </body>

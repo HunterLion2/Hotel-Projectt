@@ -17,7 +17,7 @@ class HotelModel {
     }
 
     public function twocapacityRoom($capacity) {
-        $room = $this->db->query("SELECT * FROM `rooms-table` WHERE capacity = $capacity");
+        $room = $this->db->query("SELECT * FROM `rooms-table` WHERE capacity >= $capacity");
         return $room->fetchAll(\PDO::FETCH_ASSOC);
     }
 
