@@ -27,6 +27,9 @@ class ReservationController extends BaseController
 
                 if ($_SERVER['REQUEST_METHOD'] == "GET") {
                     if ($_GET['kişisay']  <= 2) {
+                        if(isset($_GET['price-filter'])) {
+                            
+                        }
                         $tworoom = $this->roomModel->twocapacityRoom($_GET['kişisay']);
 
                         $this->render('/front/reservation', [
@@ -43,8 +46,19 @@ class ReservationController extends BaseController
                             'rooms' => $allroom
                         ]);
                     }
+
+                    // -----------
+
+                    $priceget = $this->roomModel->pricefilter($_GET['price-filter']);
+
+                    $this->render('/front/reservation', [
+                        'rooms' => $priceget
+                    ]);
+
                 }
             }
+
+
         } catch (\Throwable $th) {
             //throw $th;
         }

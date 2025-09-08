@@ -21,5 +21,8 @@ class HotelModel {
         return $room->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    public function pricefilter($price) {
+        $prices = $this->db->query("SELECT * FROM `rooms-table` WHERE price <= $price");
+    }
 
 }
