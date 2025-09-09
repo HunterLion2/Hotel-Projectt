@@ -27,38 +27,40 @@ class ReservationController extends BaseController
 
                 if ($_SERVER['REQUEST_METHOD'] == "GET") {
                     if ($_GET['kişisay']  <= 2) {
-                        if(isset($_GET['price-filter'])) {
-                            
+                        if (isset($_GET['price-filter'])) {
+                            $tworoomp = $this->roomModel->twopricefilter($_GET['price-filter'],$_GET['kişisay']);
+
+                            $this->render('/front/reservation', [
+                                'rooms' => $tworoomp
+                            ]);
+                        } else {
+                            $tworoom = $this->roomModel->capacityRoom($_GET['kişisay']);
+
+                            $this->render('/front/reservation', [
+                                'rooms' => $tworoom
+                            ]);
                         }
-                        $tworoom = $this->roomModel->twocapacityRoom($_GET['kişisay']);
-
-                        $this->render('/front/reservation', [
-                            'rooms' => $tworoom
-                        ]);
                     } else if ($_GET['kişisay']  >= 3) {
-                        $tworoom = $this->roomModel->twocapacityRoom($_GET['kişisay']);
+                        if (isset($_GET['price-filter'])) {
+                            $tworoomp = $this->roomModel->threepricefilter($_GET['price-filter'],$_GET['kişisay']);
 
-                        $this->render('/front/reservation', [
-                            'rooms' => $tworoom
-                        ]);
+                            $this->render('/front/reservation', [
+                                'rooms' => $tworoomp
+                            ]);
+                        } else {
+                            $tworoom = $this->roomModel->capacityRoom($_GET['kişisay']);
+
+                            $this->render('/front/reservation', [
+                                'rooms' => $tworoom
+                            ]);
+                        }
                     } else {
                         $this->render('/front/reservation', [
                             'rooms' => $allroom
                         ]);
                     }
-
-                    // -----------
-
-                    $priceget = $this->roomModel->pricefilter($_GET['price-filter']);
-
-                    $this->render('/front/reservation', [
-                        'rooms' => $priceget
-                    ]);
-
                 }
             }
-
-
         } catch (\Throwable $th) {
             //throw $th;
         }
