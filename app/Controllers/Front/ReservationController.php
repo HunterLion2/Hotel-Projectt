@@ -20,7 +20,6 @@ class ReservationController extends BaseController
 
     public function index()
     {
-
         try {
             if (isset($this->db)) {
                 $allroom = $this->roomModel->getAllRoom();
@@ -28,7 +27,7 @@ class ReservationController extends BaseController
                 if ($_SERVER['REQUEST_METHOD'] == "GET") {
                     if ($_GET['kişisay']  <= 2) {
                         if (isset($_GET['price-filter'])) {
-                            $tworoomp = $this->roomModel->twopricefilter($_GET['price-filter'],$_GET['kişisay']);
+                            $tworoomp = $this->roomModel->twopricefilter($_GET['price-filter'], $_GET['kişisay']);
 
                             $this->render('/front/reservation', [
                                 'rooms' => $tworoomp
@@ -42,7 +41,7 @@ class ReservationController extends BaseController
                         }
                     } else if ($_GET['kişisay']  >= 3) {
                         if (isset($_GET['price-filter'])) {
-                            $tworoomp = $this->roomModel->threepricefilter($_GET['price-filter'],$_GET['kişisay']);
+                            $tworoomp = $this->roomModel->threepricefilter($_GET['price-filter'], $_GET['kişisay']);
 
                             $this->render('/front/reservation', [
                                 'rooms' => $tworoomp
@@ -64,7 +63,6 @@ class ReservationController extends BaseController
         } catch (\Throwable $th) {
             //throw $th;
         }
-
 
         $this->render("front/reservation");
     }

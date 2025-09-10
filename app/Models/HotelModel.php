@@ -22,7 +22,7 @@ class HotelModel
 
     public function capacityRoom($capacity)
     {
-        $room = $this->db->query("SELECT * FROM `rooms-table` WHERE capacity >= $capacity");
+        $room = $this->db->query("SELECT * FROM `rooms-table` WHERE capacity = $capacity");
         return $room->fetchAll(\PDO::FETCH_ASSOC);
     }
 
@@ -37,4 +37,11 @@ class HotelModel
         $prices = $this->db->query("SELECT * FROM `rooms-table` WHERE price <= $price AND capacity >= $capacity");
         return $prices->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function specialpacket($smoke, $eng, $romantic)
+    {
+        $special = $this->db->query("SELECT * FROM `rooms-table` WHERE smoke-packet = $smoke AND engelli-paket = $eng AND romantik-packet = $romantic");
+        return $special->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
 }
