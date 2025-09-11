@@ -63,7 +63,6 @@ class ReservationController extends BaseController
         } catch (\Throwable $th) {
             //throw $th;
         }
-
         $this->render("front/reservation");
     }
 }

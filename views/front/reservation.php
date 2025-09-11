@@ -375,12 +375,21 @@
             color: var(--primary-color);
             transform: scale(1.1);
         }
+
+        #back-button {
+            padding: 10px;
+            border-radius: 50px;
+            background-color: #333;
+        }
+
     </style>
 </head>
 
 <body>
     <!-- Page Header -->
+    
     <div class="page-header">
+        <span class="back-button"><i id="back-button" class="fa-solid fa-arrow-left"></i></span>
         <div class="container-modern">
             <h1><i class="bi bi-calendar-check"></i> Rezervasyon</h1>
             <p>Hayalinizdeki tatil için mükemmel odayı bulun</p>
