@@ -19,50 +19,51 @@ class ReservationController extends BaseController
     }
 
     public function index()
-    {
+     {
+        $rooms = [];
+        
         try {
             if (isset($this->db)) {
-                $allroom = $this->roomModel->getAllRoom();
-
-                if ($_SERVER['REQUEST_METHOD'] == "GET") {
-                    if ($_GET['kişisay']  <= 2) {
-                        if (isset($_GET['price-filter'])) {
-                            $tworoomp = $this->roomModel->twopricefilter($_GET['price-filter'], $_GET['kişisay']);
-
-                            $this->render('/front/reservation', [
-                                'rooms' => $tworoomp
-                            ]);
-                        } else {
-                            $tworoom = $this->roomModel->capacityRoom($_GET['kişisay']);
-
-                            $this->render('/front/reservation', [
-                                'rooms' => $tworoom
-                            ]);
-                        }
-                    } else if ($_GET['kişisay']  >= 3) {
-                        if (isset($_GET['price-filter'])) {
-                            $tworoomp = $this->roomModel->threepricefilter($_GET['price-filter'], $_GET['kişisay']);
-
-                            $this->render('/front/reservation', [
-                                'rooms' => $tworoomp
-                            ]);
-                        } else {
-                            $tworoom = $this->roomModel->capacityRoom($_GET['kişisay']);
-
-                            $this->render('/front/reservation', [
-                                'rooms' => $tworoom
-                            ]);
+                
+                if (isset($_GET['filter_submitted']) && $_GET['filter_submitted'] == "1") {
+                    $capacity = $_GET['kişisay'] ?? null;
+                    $priceFilter = $_GET['price-filter'] ?? null;
+                    
+                    if ($capacity) {
+                        if ($capacity <= 2) {
+                            if (!empty($priceFilter)) {
+                                $rooms = $this->roomModel->twopricefilter($priceFilter, $capacity);
+                            } else {
+                                $rooms = $this->roomModel->capacityRoom($capacity);
+                            }
+                        } else if ($capacity >= 3) {
+                            if (!empty($priceFilter)) {
+                                $rooms = $this->roomModel->threepricefilter($priceFilter, $capacity);
+                            } else {
+                                $rooms = $this->roomModel->capacityRoom($capacity);
+                            }
                         }
                     } else {
-                        $this->render('/front/reservation', [
-                            'rooms' => $allroom
-                        ]);
+                        $rooms = $this->roomModel->getAllRoom();
                     }
+                } else {
+                    $rooms = $this->roomModel->getAllRoom();
                 }
             }
+            
         } catch (\Throwable $th) {
-            //throw $th;
+            $rooms = $this->roomModel->getAllRoom();
         }
-        $this->render("front/reservation");
+
+        $this->render('/front/reservation', [
+            'rooms' => $rooms
+        ]);
+
+        // Her yere render() yazmaktansa burada olduğu gibi bir tane liste değeri oluşturup içinide boş yaparsak sadece bu değeri çağırıp yazarız en sona da bu değerin aslında ne olduğunu yani bu değeri =>
+        
+        // $this->render('/front/reservation', [
+        //    'rooms' => $rooms
+        // ]);
+
     }
 }

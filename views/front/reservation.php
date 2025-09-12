@@ -376,20 +376,63 @@
             transform: scale(1.1);
         }
 
-        #back-button {
-            padding: 10px;
-            border-radius: 50px;
-            background-color: #333;
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
+        #back-button {
+            padding: 12px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #fff;
+            background: linear-gradient(135deg, #333, #555);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .back-button:hover #back-button {
+            background: linear-gradient(135deg, #555, #777);
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            color: #fff;
+        }
+
+        .back-button:hover {
+            text-decoration: none;
+        }
+
+        /* Responsive için */
+        @media (max-width: 768px) {
+            .back-button {
+                top: 15px;
+                left: 15px;
+            }
+
+            #back-button {
+                width: 40px;
+                height: 40px;
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <!-- Page Header -->
-    
+
     <div class="page-header">
-        <span class="back-button"><i id="back-button" class="fa-solid fa-arrow-left"></i></span>
+        <a href="/" class="back-button"><i id="back-button" class="fa-solid fa-arrow-left"></i></a>
         <div class="container-modern">
             <h1><i class="bi bi-calendar-check"></i> Rezervasyon</h1>
             <p>Hayalinizdeki tatil için mükemmel odayı bulun</p>
@@ -488,6 +531,8 @@
                                 </div>
 
                             </div>
+
+                            <input type="hidden" class="click-filter" name="filter_submitted" value="1">
 
                             <button type="submit" class="btn-filter">
                                 <i class="bi bi-search"></i> Odaları Filtrele
@@ -625,7 +670,7 @@
             const roomContainer = document.querySelector('.col-lg-8.col-xl-9, .col-lg-12.col-xl-12');
             const filter = document.querySelector('.filtreleme');
 
-            
+
             filterallcard.classList.remove('animate__animated', 'animate__bounceOut');
 
             setTimeout(() => {
