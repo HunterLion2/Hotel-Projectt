@@ -44,4 +44,10 @@ class HotelModel
         return $special->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    // ----------------------------------------------
+
+    public function reservationprivate() {
+        
+    }
+
 }

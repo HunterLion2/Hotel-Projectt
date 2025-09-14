@@ -586,6 +586,10 @@
                                                         <span class="feature-tag"><i class="bi bi-tv"></i> <?= htmlspecialchars($room['Tv']) ?></span>
                                                         <span class="feature-tag"><i class="bi bi-snow"></i> <?= htmlspecialchars($room['climate']) ?></span>
                                                         <span class="feature-tag"><i class="bi bi-cup-hot"></i> <?= htmlspecialchars($room['minibar']) ?></span>
+                                                        
+                                                        <span class="feature-tag"><i class="bi bi-cup-hot"></i> <?= htmlspecialchars($room['none-smoke']) ?></span>
+                                                        <span class="feature-tag"><i class="bi bi-cup-hot"></i> <?= htmlspecialchars($room['engelli-erişimi']) ?></span>
+                                                        <span class="feature-tag"><i class="bi bi-cup-hot"></i> <?= htmlspecialchars($room['romantic-packet']) ?></span>
 
                                                     </div>
 

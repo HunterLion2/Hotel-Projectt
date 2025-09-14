@@ -66,4 +66,15 @@ class ReservationController extends BaseController
         // ]);
 
     }
+
+    public function privatesettings() {
+
+        $private = [];
+
+        if(isset($this->db)) {
+            
+        }
+
+    }
+
 }
