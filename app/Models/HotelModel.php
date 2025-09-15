@@ -16,8 +16,8 @@ class HotelModel
         $this->db = Database::getInstance();
     }
 
-    public function getAllRoom()
-    {
+    public function getAllRoom(){
+    
         try {
             $stmt = $this->db->prepare("
                 SELECT 
@@ -37,8 +37,8 @@ class HotelModel
         }
     }
 
-    public function capacityRoom($capacity)
-    {
+    public function capacityRoom($capacity){
+    
                 try {
             $stmt = $this->db->prepare("
                 SELECT 
@@ -59,8 +59,7 @@ class HotelModel
         }
     }
 
-    public function twopricefilter($price, $capacity)
-    {
+    public function twopricefilter($price, $capacity){
         try {
             $stmt = $this->db->prepare("
                 SELECT 
@@ -81,8 +80,7 @@ class HotelModel
         }
     }
 
-    public function threepricefilter($price, $capacity)
-    {
+    public function threepricefilter($price, $capacity){
         try {
             $stmt = $this->db->prepare("
                 SELECT 
@@ -100,6 +98,60 @@ class HotelModel
         } catch (Exception $e) {
             error_log("threepricefilter error: " . $e->getMessage());
             return [];
+        }
+    }
+
+      public function filterWithSpecialFeatures($capacity = null, $price = null, $noneSmoke = false, $disabledAccess = false, $romanticPacket = false)
+    {
+        try {
+            $sql = "
+                SELECT DISTINCT
+                    r.*,
+                    ps.`none-smoke`,
+                    ps.`engelli-erişimi`,
+                    ps.`romantic-packet`
+                FROM `rooms-table` r
+                LEFT JOIN `private-settings` ps ON r.id = ps.room_id
+                WHERE 1=1
+            ";
+            $params = [];
+
+            if ($capacity) {
+                if ($capacity === '5+') {
+                    $sql .= " AND r.capacity >= ?";
+                    $params[] = 5;
+                } else {
+                    $sql .= " AND r.capacity >= ?";
+                    $params[] = (int)$capacity;
+                }
+            }
+
+            if ($price && $price > 0) {
+                $sql .= " AND r.price <= ?";
+                $params[] = $price;
+            }
+
+            if ($noneSmoke) {
+                $sql .= " AND (ps.`none-smoke` = 1 OR r.`smoke-packet` = 0)";
+            }
+
+            if ($disabledAccess) {
+                $sql .= " AND (ps.`engelli-erişimi` = 1 OR r.`engelli-packet` = 1)";
+            }
+
+            if ($romanticPacket) {
+                $sql .= " AND (ps.`romantic-packet` = 1 OR r.`romantik-packet` = 1)";
+            }
+
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute($params);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+            
+            return $result;
+
+        } catch (Exception $e) {
+
         }
     }
 
