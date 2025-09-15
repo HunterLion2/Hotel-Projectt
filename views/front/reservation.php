@@ -259,7 +259,7 @@
         }
 
         .room-content {
-            padding: 25px;
+            padding: 10px;
         }
 
         .room-title {
@@ -444,7 +444,7 @@
         <div class="reservation-container">
             <div class="row">
                 <!-- Filter Sidebar -->
-                <div class="filter-card-wh col-lg-4 col-xl-3">
+                <div class="filter-card-wh col-lg-4 col-xl-3 mb-5">
                     <div class="filter-card">
                         <span class="filter-close">
                             <button class="filter-close-in"><i class="fa-solid fa-xmark text-white"></i></button>
@@ -586,11 +586,23 @@
                                                         <span class="feature-tag"><i class="bi bi-tv"></i> <?= htmlspecialchars($room['Tv']) ?></span>
                                                         <span class="feature-tag"><i class="bi bi-snow"></i> <?= htmlspecialchars($room['climate']) ?></span>
                                                         <span class="feature-tag"><i class="bi bi-cup-hot"></i> <?= htmlspecialchars($room['minibar']) ?></span>
+                                                        <?php if (!empty($room['none-smoke']) && $room['none-smoke'] == '1'): ?>
+                                                            <span class="feature-tag" style="background: #e8f5e8; color: #2e7d32;">
+                                                                <i class="bi bi-shield-check"></i> Sigara İçilmeyen
+                                                            </span>
+                                                        <?php endif; ?>
 
-                                                        <span class="feature-tag"><i class="bi bi-shield-check"></i> <?= htmlspecialchars($room['none-smoke']) ?></span>
-                                                        <span class="feature-tag"><i class="bi bi-universal-access"></i> <?= htmlspecialchars($room['engelli-erişimi']) ?></span>
-                                                        <span class="feature-tag"><i class="bi bi-heart"></i> <?= htmlspecialchars($room['romantic-packet']) ?></span>
+                                                        <?php if (!empty($room['engelli-erişimi']) && $room['engelli-erişimi'] == '1'): ?>
+                                                            <span class="feature-tag" style="background: #e3f2fd; color: #1976d2;">
+                                                                <i class="bi bi-universal-access"></i> Engelli Erişimi
+                                                            </span>
+                                                        <?php endif; ?>
 
+                                                        <?php if (!empty($room['romantic-packet']) && $room['romantic-packet'] == '1'): ?>
+                                                            <span class="feature-tag" style="background: #fce4ec; color: #c2185b;">
+                                                                <i class="bi bi-heart"></i> Romantik Paket
+                                                            </span>
+                                                        <?php endif; ?>
                                                     </div>
 
                                                     <div class="d-flex justify-content-between align-items-center">

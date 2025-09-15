@@ -19,16 +19,16 @@ class ReservationController extends BaseController
     }
 
     public function index()
-     {
+    {
         $rooms = [];
-        
+
         try {
             if (isset($this->db)) {
-                
+
                 if (isset($_GET['filter_submitted']) && $_GET['filter_submitted'] == "1") {
                     $capacity = $_GET['kişisay'] ?? null;
                     $priceFilter = $_GET['price-filter'] ?? null;
-                    
+
                     if ($capacity) {
                         if ($capacity <= 2) {
                             if (!empty($priceFilter)) {
@@ -50,7 +50,6 @@ class ReservationController extends BaseController
                     $rooms = $this->roomModel->getAllRoom();
                 }
             }
-            
         } catch (\Throwable $th) {
             $rooms = $this->roomModel->getAllRoom();
         }
@@ -60,21 +59,10 @@ class ReservationController extends BaseController
         ]);
 
         // Her yere render() yazmaktansa burada olduğu gibi bir tane liste değeri oluşturup içinide boş yaparsak sadece bu değeri çağırıp yazarız en sona da bu değerin aslında ne olduğunu yani bu değeri =>
-        
+
         // $this->render('/front/reservation', [
         //    'rooms' => $rooms
         // ]);
 
     }
-
-    public function privatesettings() {
-
-        $private = [];
-
-        if(isset($this->db)) {
-            
-        }
-
-    }
-
 }
